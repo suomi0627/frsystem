@@ -41,7 +41,7 @@ Route::post('/facilities', function (Request $request) {
     return redirect('/');
 });
 
-Route::delete('/facility/{id}', function ($id) {
+Route::delete('/facilities/{id}', function ($id) {
     facilities::findOrFail($id)->delete();
 
     return redirect('/');
