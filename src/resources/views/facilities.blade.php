@@ -14,7 +14,7 @@
 
             <!-- 施設名 -->
             <div class="form-group">
-                <label for="facilities" class="col-sm-3 control-label">facilities</label>
+                <label for="facilities" class="col-sm-3 control-label">施設名</label>
 
                 <div class="col-sm-6">
                     <input type="text" name="name" id="facilities-name" class="form-control">
@@ -35,7 +35,7 @@
 	    @if (count($facilities) > 0)
 	    <div class="panel panel-default">
 	        <div class="panel-heading">
-	            現在の施設
+	            施設名
 	        </div>
 
 	        <div class="panel-body">
@@ -43,7 +43,7 @@
 
 	                <!-- テーブルヘッダー -->
 	                <thead>
-	                    <th>facilities</th>
+	                    <th>施設一覧</th>
 	                    <th>&nbsp;</th>
 	                </thead>
 
@@ -62,7 +62,7 @@
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
 
-    <button>施設削除</button>
+    <button>×</button>
   </form>
 	                            </td>
 	                        </tr>

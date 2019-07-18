@@ -17,9 +17,10 @@
 
     <body>
         <div class="container">
-            <nav class="navbar navbar-default">
-                <!-- ナビバーの内容 -->
-            </nav>
+
+{{-- お試し --}}
+<h1 class="text-center">施設管理システム</H1>
+{{-- お試し --}}
         </div>
 
         @yield('content')
