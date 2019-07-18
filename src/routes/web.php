@@ -1,5 +1,8 @@
 <?php
 
+use App\facilities;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +15,11 @@
 */
 
 Route::get('/', function () {
-    return view('facilities');
+    $facilities = facilities::orderBy('created_at', 'asc')->get();
+
+    return view('facilities', [
+        'facilities' => $facilities
+    ]);
 });
 
 Route::post('/facilities', function (Request $request) {
@@ -26,5 +33,10 @@ Route::post('/facilities', function (Request $request) {
             ->withErrors($validator);
     }
 
-    // タスク作成…
+    // 施設作成…
+    $facilities = new facilities();
+    $facilities->name = $request->name;
+    $facilities->save();
+
+    return redirect('/');
 });

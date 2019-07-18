@@ -9,15 +9,15 @@
         @include('common.errors')
 
         <!-- 新施設フォーム -->
-        <form action="/facility" method="POST" class="form-horizontal">
+        <form action="/facilities" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- 施設名 -->
             <div class="form-group">
-                <label for="facility" class="col-sm-3 control-label">Facility</label>
+                <label for="facilities" class="col-sm-3 control-label">facilities</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="name" id="facility-name" class="form-control">
+                    <input type="text" name="name" id="facilities-name" class="form-control">
                 </div>
             </div>
 
@@ -31,6 +31,39 @@
             </div>
         </form>
     </div>
+        <!-- 現在の施設 -->
+	    @if (count($facilities) > 0)
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	            現在の施設
+	        </div>
 
-    <!-- TODO: 現在の施設 -->
+	        <div class="panel-body">
+	            <table class="table table-striped facilities-table">
+
+	                <!-- テーブルヘッダー -->
+	                <thead>
+	                    <th>facilities</th>
+	                    <th>&nbsp;</th>
+	                </thead>
+
+	                <!-- テーブルボディー -->
+	                <tbody>
+	                    @foreach ($facilities as $facilities)
+	                        <tr>
+	                            <!-- 施設名 -->
+	                            <td class="table-text">
+	                                <div>{{ $facilities->name }}</div>
+	                            </td>
+
+	                            <td>
+	                                <!-- TODO: 削除ボタン -->
+	                            </td>
+	                        </tr>
+	                    @endforeach
+	                </tbody>
+	            </table>
+	        </div>
+	    </div>
+	@endif
 @endsection
