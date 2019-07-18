@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('facilities');
+});
+
+Route::post('/facilities', function (Request $request) {
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    // タスク作成…
 });
