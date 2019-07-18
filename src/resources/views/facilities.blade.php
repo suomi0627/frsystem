@@ -57,7 +57,13 @@
 	                            </td>
 
 	                            <td>
-	                                <!-- TODO: 削除ボタン -->
+                                    <!-- TODO: 削除ボタン -->
+<form action="/facilities/{{ $facilities->id }}" method="POST">
+    {{ csrf_field() }}
+    {{ method_field('DELETE') }}
+
+    <button>施設削除</button>
+  </form>
 	                            </td>
 	                        </tr>
 	                    @endforeach
