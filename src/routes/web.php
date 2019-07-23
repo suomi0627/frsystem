@@ -22,6 +22,11 @@ Route::get('/', function () {
     ]);
 });
 
+// Reservationsのルーティング設定
+Route::get('reservation', 'ReservationController@create'); // 入力フォーム
+Route::post('reservation', 'ReservationController@store'); // 送信先
+// 
+
 Route::post('/facilities', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
