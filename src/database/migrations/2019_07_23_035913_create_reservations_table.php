@@ -15,7 +15,7 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('room_id')->comment('施設名');
+            $table->bigIncrements('room_id')->comment('施設名');
             $table->dateTime('start_at')->comment('開始時間');
             $table->dateTime('end_at')->comment('終了時間');
             $table->timestamps();
@@ -30,20 +30,5 @@ class CreateReservationsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('reservations');
-    }
-}
-
-class ReservationController extends Controller
-{
-    public function create() {
-
-        return view('reservation');
-
-    }
-
-    public function store() {
-
-        // ここで予約データ保存
-
     }
 }
