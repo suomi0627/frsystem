@@ -1,6 +1,6 @@
 <?php
 
-use App\facilities;
+use App\Facilities;
 use Illuminate\Http\Request;
 
 /*
@@ -15,17 +15,13 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    $facilities = facilities::orderBy('created_at', 'asc')->get();
+    $facilities = Facilities::orderBy('created_at', 'asc')->get();
 
     return view('facilities', [
         'facilities' => $facilities
     ]);
 });
 
-// Reservationsのルーティング設定
-Route::get('reservation', 'ReservationController@create'); // 入力フォーム
-Route::post('reservation', 'ReservationController@store'); // 送信先
-// 
 
 Route::post('/facilities', function (Request $request) {
     $validator = Validator::make($request->all(), [
@@ -39,7 +35,7 @@ Route::post('/facilities', function (Request $request) {
     }
 
     // 施設作成…
-    $facilities = new facilities();
+    $facilities = new Facilities();
     $facilities->name = $request->name;
     $facilities->save();
 
@@ -47,7 +43,7 @@ Route::post('/facilities', function (Request $request) {
 });
 
 Route::delete('/facilities/{id}', function ($id) {
-    facilities::findOrFail($id)->delete();
+    Facilities::findOrFail($id)->delete();
 
     return redirect('/');
 });
