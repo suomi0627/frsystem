@@ -1,7 +1,7 @@
 <?php
 
 use App\Facilities;
-use App\Reservation;
+use App\Details;
 use Illuminate\Http\Request;
 
 /*
@@ -45,6 +45,41 @@ Route::post('/facilities', function (Request $request) {
 
 Route::delete('/facilities/{id}', function ($id) {
     Facilities::findOrFail($id)->delete();
+
+    return redirect('/');
+});
+
+// details用のルーティング
+Route::get('/', function () {
+    $details = Details::orderBy('created_at', 'asc')->get();
+
+    return view('details', [
+        'details' => $details
+    ]);
+});
+
+
+Route::post('/details', function (Request $request) {
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    // 施設作成…
+    $details = new Facilities();
+    $details->name = $request->name;
+    $details->save();
+
+    return redirect('/');
+});
+
+Route::delete('/details/{id}', function ($id) {
+    Details::findOrFail($id)->delete();
 
     return redirect('/');
 });
