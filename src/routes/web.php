@@ -50,7 +50,7 @@ Route::delete('/facilities/{id}', function ($id) {
 });
 
 // details用のルーティング
-Route::get('/', function () {
+Route::get('/facilities/{id}/details', function () {
     $details = Details::orderBy('created_at', 'asc')->get();
 
     return view('details', [
