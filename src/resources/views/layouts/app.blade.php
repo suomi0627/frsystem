@@ -18,15 +18,16 @@
 
 <body>
 
+    <div class="container">
 
-    <nav class="navbar navbar-default" style="background-color:#fff">
-        <!-- ナビバーの内容 -->
-        <a class="navbar-brand" href="#">
-            FRsystem
-            <i class="fa fa-pencil"></i></h1>
-        </a>
-    </nav>
-
+        <nav class="navbar navbar-default" style="background-color:#66cdaa">
+            <!-- ナビバーの内容 -->
+            <a class="navbar-brand" href="#">
+                FRsystem
+                <i class="fa fa-pencil"></i></h1>
+            </a>
+        </nav>
+    </div>
     @yield('content')
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
