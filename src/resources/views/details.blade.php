@@ -10,22 +10,26 @@
 </div>
 
 <div class="container">
-
-    <h4>施設XXX</h4>
-
-    <form action="xxx.php" method="post">
-        <div>日付:</div><input type="date" name="date"></label>
-        <input type="submit" value="送信">
-    </form>
-
-    <form>
-        <h5 id="target_title">Fromより過去日付は、Toで指定出来ません。</h5>
-        <label>From:</label>
-        <input type="time" id="timepickerFrom" placeholder="クリックして下さい" />
-
-        <label>To:</label>
-        <input type="time" id="timepickerTo" placeholder="クリックして下さい" />
-    </form>
-
+    <div class="panel panel-default">
+        <div class="panel-heading">予約詳細</div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label class="control-label">日程</label>
+                    <input class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">開始時間</label>
+                    <input class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">終了時間</label>
+                    <input class="form-control" type="text">
+                </div>
+                <button class="btn btn-default">送信</button>
+            </form>
+        </div>
+    </div>
 </div>
+
 @endsection
