@@ -15,7 +15,7 @@
         <div class="panel-body">
             <form>
                 <div class="form-group">
-                    <label class="control-label">日程</label>
+                    <label class="control-label">日付</label>
                     <input class="form-control" type="text">
                 </div>
                 <div class="form-group">
@@ -26,7 +26,7 @@
                     <label class="control-label">終了時間</label>
                     <input class="form-control" type="text">
                 </div>
-                <button class="btn btn-default">送信</button>
+                <button class="btn btn-default">予約</button>
             </form>
         </div>
     </div>
