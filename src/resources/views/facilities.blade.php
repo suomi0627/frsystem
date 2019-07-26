@@ -35,7 +35,7 @@
 <!-- 現在の施設 -->
 @if (count($facilities) > 0)
 <div class="container">
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading">
             施設名
         </div>
