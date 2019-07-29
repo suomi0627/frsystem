@@ -59,20 +59,24 @@ Route::get('/facilities/{id}/details', function () {
 });
 
 
-Route::post('/details', function (Request $request) {
+Route::post('/facilities/{id}/details', function (Request $request) {
     $validator = Validator::make($request->all(), [
-        'name' => 'required|max:255',
+        'apply_date' => 'required',
+        'start_at' => 'required',
+        'end_at' => 'required',
     ]);
 
     if ($validator->fails()) {
-        return redirect('/')
+        return redirect('/facilities/{id}/details')
             ->withInput()
             ->withErrors($validator);
     }
 
     // 施設作成…
-    $details = new Facilities();
-    $details->name = $request->name;
+    $details = new Details();
+    $details->apply_date = $request->apply_date;
+    $details->start_at = $request->start_at;
+    $details->end_at = $request->end_at;
     $details->save();
 
     return redirect('/');
