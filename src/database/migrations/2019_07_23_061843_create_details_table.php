@@ -16,8 +16,9 @@ class CreateDetailsTable extends Migration
         Schema::create('details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('facility_id');
-            $table->dateTime('start_at')->comment('開始時間');
-            $table->dateTime('end_at')->comment('終了時間');
+            $table->date('apply_date');
+            $table->time('start_at')->comment('開始時間');
+            $table->time('end_at')->comment('終了時間');
             $table->timestamps();
         });
     }
