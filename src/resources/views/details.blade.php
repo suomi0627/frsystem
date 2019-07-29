@@ -15,20 +15,21 @@
         <div class="panel-heading">予約申込</div>
         <div class="panel-body">
 
-            <form method="POST" action="/facilities/{id}/details">
+
+        <form method="POST" action="/facilities/{{ $id }}/details">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <div>施設名</div>
                     <label class="control-label">日付</label>
-                    <input name="apply_date" class="form-control" type="date">
+                    <input name="apply_date" class="form-control" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label">開始時間</label>
-                    <input name="start_at" class="form-control" type="time">
+                    <input name="start_at" class="form-control" type="text">
                 </div>
                 <div class="form-group">
                     <label class="control-label">終了時間</label>
-                    <input name="end_at" class="form-control" type="time">
+                    <input name="end_at" class="form-control" type="text">
                 </div>
                 <button type="submit" class="btn btn-default">予約</button>
             </form>
