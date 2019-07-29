@@ -50,11 +50,11 @@ Route::delete('/facilities/{id}', function ($id) {
 });
 
 // details用のルーティング
-Route::get('/facilities/{id}/details', function () {
+Route::get('/facilities/{id}/details', function ($id) {
     $details = Details::orderBy('created_at', 'asc')->get();
 
     return view('details', [
-        'details' => $details
+        'details' => $details, 'id' => $id
     ]);
 });
 
@@ -81,7 +81,7 @@ Route::post('/facilities/{id}/details', function (Request $request, $id) {
     $details->end_at = $request->end_at;
     $details->save();
 
-    return redirect('/facilities/{id}/details');
+    return redirect("/facilities/{$id}/details");
 });
 
 Route::delete('/details/{id}', function ($id) {
