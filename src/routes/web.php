@@ -59,7 +59,7 @@ Route::get('/facilities/{id}/details', function () {
 });
 
 
-Route::post('/facilities/{id}/details', function (Request $request) {
+Route::post('/facilities/{id}/details', function (Request $request, $id) {
     $validator = Validator::make($request->all(), [
         'apply_date' => 'required',
         'start_at' => 'required',
@@ -72,14 +72,16 @@ Route::post('/facilities/{id}/details', function (Request $request) {
             ->withErrors($validator);
     }
 
+    Log::info('id', ['id'=>$id]);
     // 施設作成…
     $details = new Details();
+    $details->facility_id = $id;
     $details->apply_date = $request->apply_date;
     $details->start_at = $request->start_at;
     $details->end_at = $request->end_at;
     $details->save();
 
-    return redirect('/');
+    return redirect('/facilities/{id}/details');
 });
 
 Route::delete('/details/{id}', function ($id) {
