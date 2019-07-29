@@ -52,16 +52,19 @@
 
                     <!-- テーブルボディー -->
                     <tbody>
-                        @foreach ($facilities as $facilities)
+                        @foreach ($facilities as $facility)
                         <tr>
                             <!-- 施設名 -->
                             <td class="table-text">
-                                <div>{{ $facilities->name }}</div>
+
+                                <a href="/facilities/{{ $facility->id }}/details">
+                                    {{ $facility->name }}
+                                </a>
                             </td>
 
                             <td>
                                 <!-- TODO: 削除ボタン -->
-                                <form action="/facilities/{{ $facilities->id }}" method="POST">
+                                <form action="/facilities/{{ $facility->id }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
 
