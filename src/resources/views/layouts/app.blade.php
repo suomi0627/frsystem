@@ -10,9 +10,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 </head>
 
 </head>
@@ -23,11 +23,12 @@
 
         <nav class="navbar navbar-dark bg-primary">
             <!-- ナビバーの内容 -->
-                <h3 class="text-center">施設予約システム
-                </h3>
+            <h3 class="text-center">施設予約システム
+            </h3>
         </nav>
     </div>
     @yield('content')
+
 </body>
 
 </html>
